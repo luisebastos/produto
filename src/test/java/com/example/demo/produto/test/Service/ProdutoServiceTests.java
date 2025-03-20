@@ -25,7 +25,10 @@ public class ProdutoServiceTests {
 
     @Test
     void test_CriarProduto_Sucesso() {
-        Produto produto = new Produto("1", "Celular", 10);
+        Produto produto = new Produto();
+        produto.setId("1");
+        produto.setNome("Celular");
+        produto.setQuantidadeEstoque(10);
 
         Mockito.when(produtoRepository.save(produto)).thenReturn(produto);
 
@@ -37,7 +40,10 @@ public class ProdutoServiceTests {
 
     @Test
     void test_BuscarProdutoPorId_Sucesso() {
-        Produto produto = new Produto("1", "Celular", 10);
+        Produto produto = new Produto();
+        produto.setId("1");
+        produto.setNome("Celular");
+        produto.setQuantidadeEstoque(10);
 
         Mockito.when(produtoRepository.findById("1")).thenReturn(Optional.of(produto));
 
@@ -60,10 +66,17 @@ public class ProdutoServiceTests {
 
     @Test
     void test_ListarProdutos_Sucesso() {
-        List<Produto> produtos = Arrays.asList(
-                new Produto("1", "Celular", 10),
-                new Produto("2", "Notebook", 5)
-        );
+        Produto produto1 = new Produto();
+        produto1.setId("1");
+        produto1.setNome("Celular");
+        produto1.setQuantidadeEstoque(10);
+
+        Produto produto2 = new Produto();
+        produto2.setId("2");
+        produto2.setNome("Notebook");
+        produto2.setQuantidadeEstoque(5);
+
+        List<Produto> produtos = Arrays.asList(produto1, produto2);
 
         Mockito.when(produtoRepository.findAll()).thenReturn(produtos);
 
@@ -74,7 +87,10 @@ public class ProdutoServiceTests {
 
     @Test
     void test_DiminuirQuantidadeEstoque_Sucesso() {
-        Produto produto = new Produto("1", "Celular", 10);
+        Produto produto = new Produto();
+        produto.setId("1");
+        produto.setNome("Celular");
+        produto.setQuantidadeEstoque(10);
 
         Mockito.when(produtoRepository.findById("1")).thenReturn(Optional.of(produto));
 
@@ -85,7 +101,10 @@ public class ProdutoServiceTests {
 
     @Test
     void test_DiminuirQuantidadeEstoque_EstoqueInsuficiente() {
-        Produto produto = new Produto("1", "Celular", 2);
+        Produto produto = new Produto();
+        produto.setId("1");
+        produto.setNome("Celular");
+        produto.setQuantidadeEstoque(2);
 
         Mockito.when(produtoRepository.findById("1")).thenReturn(Optional.of(produto));
 
