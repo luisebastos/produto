@@ -35,7 +35,10 @@ public class ProdutoControllerTests {
 
     @Test
     void test_CriarProduto() throws Exception {
-        Produto produto = new Produto("1", "Celular", 10);
+        Produto produto = new Produto();
+        produto.setId("1");
+        produto.setNome("Celular");
+        produto.setQuantidadeEstoque(10);
 
         Mockito.when(produtoService.criarProduto(Mockito.any(Produto.class)))
                 .thenReturn(produto);
@@ -51,7 +54,10 @@ public class ProdutoControllerTests {
 
     @Test
     void test_BuscarProduto() throws Exception {
-        Produto produto = new Produto("1", "Celular", 10);
+        Produto produto = new Produto();
+        produto.setId("1");
+        produto.setNome("Celular");
+        produto.setQuantidadeEstoque(10);
 
         Mockito.when(produtoService.buscarProdutoPorId("1"))
                 .thenReturn(produto);
@@ -63,10 +69,17 @@ public class ProdutoControllerTests {
 
     @Test
     void test_ListarProdutos() throws Exception {
-        List<Produto> produtos = Arrays.asList(
-                new Produto("1", "Celular", 10),
-                new Produto("2", "Notebook", 5)
-        );
+        Produto produto1 = new Produto();
+        produto1.setId("1");
+        produto1.setNome("Celular");
+        produto1.setQuantidadeEstoque(10);
+
+        Produto produto2 = new Produto();
+        produto2.setId("2");
+        produto2.setNome("Notebook");
+        produto2.setQuantidadeEstoque(5);
+
+        List<Produto> produtos = Arrays.asList(produto1, produto2);
 
         Mockito.when(produtoService.listarProdutos()).thenReturn(produtos);
 
