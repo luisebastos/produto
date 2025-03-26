@@ -1,2 +1,7 @@
+com/example/demo/usuario/Usuario.class
+com/example/demo/teste/TesteService.class
+com/example/demo/teste/TesteRepository.class
+com/example/demo/teste/Teste.class
 com/example/demo/teste/TesteController.class
+com/example/demo/usuario/UsuarioService.class
 com/example/demo/ProdutoApplication.class

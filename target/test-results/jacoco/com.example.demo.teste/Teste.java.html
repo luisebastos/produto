@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Teste.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.teste</a> &gt; <span class="el_source">Teste.java</span></div><h1>Teste.java</h1><pre class="source lang-java linenums">package com.example.demo.teste;
+import org.springframework.data.annotation.Id;
+
+import java.time.LocalDateTime;
+
+<span class="fc" id="L6">public class Teste {</span>
+
+    @Id
+    private String id;
+    private String titulo;
+    private String descricao;
+    private Integer cargaHoraria;
+    private String instrutor;
+    private String nomeUsuario;
+    private String emailUsuario;
+
+    public String getId() {
+<span class="fc" id="L18">        return id;</span>
+    }
+
+    public void setId(String id) {
+<span class="fc" id="L22">        this.id = id;</span>
+<span class="fc" id="L23">    }</span>
+
+    public String getTitulo() {
+<span class="fc" id="L26">        return titulo;</span>
+    }
+
+    public void setTitulo(String titulo) {
+<span class="fc" id="L30">        this.titulo = titulo;</span>
+<span class="fc" id="L31">    }</span>
+
+    public String getDescricao() {
+<span class="fc" id="L34">        return descricao;</span>
+    }
+
+    public void setDescricao(String descricao) {
+<span class="fc" id="L38">        this.descricao = descricao;</span>
+<span class="fc" id="L39">    }</span>
+
+    public Integer getCargaHoraria() {
+<span class="fc" id="L42">        return cargaHoraria;</span>
+    }
+
+    public void setCargaHoraria(Integer cargaHoraria) {
+<span class="fc" id="L46">        this.cargaHoraria = cargaHoraria;</span>
+<span class="fc" id="L47">    }</span>
+
+    public String getInstrutor() {
+<span class="fc" id="L50">        return instrutor;</span>
+    }
+
+    public void setInstrutor(String instrutor) {
+<span class="fc" id="L54">        this.instrutor = instrutor;</span>
+<span class="fc" id="L55">    }</span>
+
+    public String getNomeUsuario() {
+<span class="fc" id="L58">        return nomeUsuario;</span>
+    }
+
+    public void setNomeUsuario(String nomeUsuario) {
+<span class="fc" id="L62">        this.nomeUsuario = nomeUsuario;</span>
+<span class="fc" id="L63">    }</span>
+
+    public String getEmailUsuario() {
+<span class="fc" id="L66">        return emailUsuario;</span>
+    }
+
+    public void setEmailUsuario(String emailUsuario) {
+<span class="fc" id="L70">        this.emailUsuario = emailUsuario;</span>
+<span class="fc" id="L71">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
