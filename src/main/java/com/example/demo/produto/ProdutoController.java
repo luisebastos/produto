@@ -35,5 +35,10 @@ public class ProdutoController {
     public List<Produto> listarProdutos() {
         return produtoService.listarProdutos();
     }
+
+    @GetMapping("/teste")
+    public String teste(){
+        return "Hello World";
+    }
 }
 
