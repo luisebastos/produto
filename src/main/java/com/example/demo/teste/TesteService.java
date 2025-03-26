@@ -39,4 +39,11 @@ public class TesteService {
         return testeRepository.findAll();
     }
 
+    public void setTesteRepository(TesteRepository repo) {
+        this.testeRepository = repo;
+    }
+    public void setUsuarioService(UsuarioService service) {
+        this.usuarioService = service;
+    }
+
 }

@@ -9,7 +9,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @Service
-<span class="nc" id="L12">public class TesteService {</span>
+<span class="fc" id="L12">public class TesteService {</span>
 
     @Autowired
     private TesteRepository testeRepository;
@@ -18,26 +18,33 @@ import java.util.List;
     private UsuarioService usuarioService;
 
     public Teste salvarTeste(Teste teste, String email){
-<span class="nc" id="L21">        Usuario usuario = usuarioService.getUsuario(email);</span>
-<span class="nc bnc" id="L22" title="All 2 branches missed.">        if (usuario.getPapel().equalsIgnoreCase(&quot;USER&quot;)) {</span>
-<span class="nc" id="L23">            throw new ResponseStatusException(HttpStatus.FORBIDDEN, &quot;Usuário não tem permissão para adicionar cursos.&quot;);</span>
+<span class="fc" id="L21">        Usuario usuario = usuarioService.getUsuario(email);</span>
+<span class="fc bfc" id="L22" title="All 2 branches covered.">        if (usuario.getPapel().equalsIgnoreCase(&quot;USER&quot;)) {</span>
+<span class="fc" id="L23">            throw new ResponseStatusException(HttpStatus.FORBIDDEN, &quot;Usuário não tem permissão para adicionar cursos.&quot;);</span>
         }
-<span class="nc" id="L25">        teste.setNomeUsuario(usuario.getNome());</span>
-<span class="nc" id="L26">        teste.setEmailUsuario(usuario.getEmail());</span>
-<span class="nc" id="L27">        return testeRepository.save(teste);</span>
+<span class="fc" id="L25">        teste.setNomeUsuario(usuario.getNome());</span>
+<span class="fc" id="L26">        teste.setEmailUsuario(usuario.getEmail());</span>
+<span class="fc" id="L27">        return testeRepository.save(teste);</span>
     }
 
     public void deletarTeste(String id, String email) {
-<span class="nc" id="L31">        Usuario usuario = usuarioService.getUsuario(email);</span>
-<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (usuario.getPapel().equalsIgnoreCase(&quot;USER&quot;)) {</span>
-<span class="nc" id="L33">            throw new ResponseStatusException(HttpStatus.FORBIDDEN, &quot;Usuário não tem permissão para excluir cursos.&quot;);</span>
+<span class="fc" id="L31">        Usuario usuario = usuarioService.getUsuario(email);</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if (usuario.getPapel().equalsIgnoreCase(&quot;USER&quot;)) {</span>
+<span class="fc" id="L33">            throw new ResponseStatusException(HttpStatus.FORBIDDEN, &quot;Usuário não tem permissão para excluir cursos.&quot;);</span>
         }
-<span class="nc" id="L35">        testeRepository.deleteById(id);</span>
-<span class="nc" id="L36">    }</span>
+<span class="fc" id="L35">        testeRepository.deleteById(id);</span>
+<span class="fc" id="L36">    }</span>
 
     public List&lt;Teste&gt; getTeste() {
-<span class="nc" id="L39">        return testeRepository.findAll();</span>
+<span class="fc" id="L39">        return testeRepository.findAll();</span>
     }
+
+    public void setTesteRepository(TesteRepository repo) {
+<span class="fc" id="L43">        this.testeRepository = repo;</span>
+<span class="fc" id="L44">    }</span>
+    public void setUsuarioService(UsuarioService service) {
+<span class="fc" id="L46">        this.usuarioService = service;</span>
+<span class="fc" id="L47">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
