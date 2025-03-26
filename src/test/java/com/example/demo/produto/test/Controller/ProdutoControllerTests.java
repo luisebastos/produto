@@ -38,6 +38,7 @@ public class ProdutoControllerTests {
         Produto produto = new Produto();
         produto.setId("1");
         produto.setNome("Celular");
+        produto.setPreco(1999.99); // adicionado
         produto.setQuantidadeEstoque(10);
 
         Mockito.when(produtoService.criarProduto(Mockito.any(Produto.class)))
@@ -57,6 +58,7 @@ public class ProdutoControllerTests {
         Produto produto = new Produto();
         produto.setId("1");
         produto.setNome("Celular");
+        produto.setPreco(1999.99); // adicionado
         produto.setQuantidadeEstoque(10);
 
         Mockito.when(produtoService.buscarProdutoPorId("1"))
@@ -72,11 +74,13 @@ public class ProdutoControllerTests {
         Produto produto1 = new Produto();
         produto1.setId("1");
         produto1.setNome("Celular");
+        produto1.setPreco(1999.99); // adicionado
         produto1.setQuantidadeEstoque(10);
 
         Produto produto2 = new Produto();
         produto2.setId("2");
         produto2.setNome("Notebook");
+        produto2.setPreco(3499.49); // adicionado
         produto2.setQuantidadeEstoque(5);
 
         List<Produto> produtos = Arrays.asList(produto1, produto2);

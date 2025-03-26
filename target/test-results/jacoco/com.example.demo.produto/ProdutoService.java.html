@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProdutoService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">com.example.demo.produto</a> &gt; <span class="el_source">ProdutoService.java</span></div><h1>ProdutoService.java</h1><pre class="source lang-java linenums">package com.example.demo.produto;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+<span class="fc" id="L12">public class ProdutoService {</span>
+
+    @Autowired
+    private ProdutoRepository produtoRepository;
+
+    public Produto criarProduto(Produto produto) {
+<span class="fc" id="L18">        return produtoRepository.save(produto);</span>
+    }
+
+    public Produto buscarProdutoPorId(String id) {
+<span class="fc" id="L22">        return produtoRepository.findById(id)</span>
+<span class="fc" id="L23">                .orElseThrow(() -&gt; new ResponseStatusException(HttpStatus.NOT_FOUND, &quot;Produto não encontrado&quot;));</span>
+    }
+
+    public void diminuirQuantidadeEstoque(String id, int quantidade) {
+<span class="fc" id="L27">        Produto produto = buscarProdutoPorId(id);</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (produto.getQuantidadeEstoque() &lt; quantidade) {</span>
+<span class="fc" id="L29">            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, &quot;Estoque insuficiente&quot;);</span>
+        }
+<span class="fc" id="L31">        produto.setQuantidadeEstoque(produto.getQuantidadeEstoque() - quantidade);</span>
+<span class="fc" id="L32">        produtoRepository.save(produto);</span>
+<span class="fc" id="L33">    }</span>
+
+    public List&lt;Produto&gt; listarProdutos() {
+<span class="fc" id="L36">        return produtoRepository.findAll();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
