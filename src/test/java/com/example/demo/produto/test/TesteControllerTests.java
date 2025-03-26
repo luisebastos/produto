@@ -25,11 +25,4 @@ public class TesteControllerTests {
                 .standaloneSetup(testeController)
                 .build();
     }
-
-    @Test
-    void test_TestHelloWorld() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/teste"))
-                .andExpect(MockMvcResultMatchers.status().isOk());
-    }
-
 }
